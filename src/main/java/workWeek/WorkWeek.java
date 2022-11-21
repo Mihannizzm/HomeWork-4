@@ -1,31 +1,27 @@
 package workWeek;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 public class WorkWeek {
 
     public static void main(String[] args) {
 
-        int[][] workDay = {
-                {1, 0, 6, 5, 1, 12, 7},
-                {1, 43, 1, 5, 1, 12, 6},
-                {1, 0, 1, 3, 1, 12, 5},
-                {1, 0, 1, 5, 1, 0, 4},
-                {1, 0, 1, 3, 1, 12, 3},
-                {1, 7, 5, 5, 1, 12, 2},
-                {1, 3, 1, 5, 1, 0, 1}
-        };
-        
-        int[] workWeek = new int[7];
-        int sumWorkDay = 0;
+        int[] workDay = {1, 1, 1, 2, 3, 5, 0, 2, 2, 2, 1, 5, 5, 0, 2, 2, 2, 1, 5, 5, 0};
 
-        for (int i = 0; i < workDay.length; i++) {
-            for (int j = 0; j < workDay[i].length; j++) {
-                sumWorkDay += workDay[i][j];
+        List<Integer> workWeek = new ArrayList<>();
+        int sumWorkDay = 0;
+        int j = 1;
+
+        for (int i = 0; i < workDay.length; ) {
+            for (; j <= 7; j++) {
+                sumWorkDay += workDay[i];
+                i++;
             }
-            workWeek[i] = sumWorkDay;
+            j = 1;
+            workWeek.add(sumWorkDay);
             sumWorkDay = 0;
         }
-        System.out.println(Arrays.toString(workWeek));
+        System.out.println(workWeek);
     }
 }
