@@ -7,7 +7,7 @@ public class UnfinishedWorkWeek {
 
     public static void main(String[] args) {
 
-        int[] workDay = {1, 1, 1, 2, 3, 5, 0, 2, 2, 2, 1, 5, 5, 0, 2, 2, 2, 1, 5};
+        int[] workDay = {1, 1, 1, 2, 3, 5, 1, 2, 2, 2, 1, 5, 5, 6, 1, 5};
 
         List<Integer> workWeek = new ArrayList<>();
         int sumWorkDay = 0;
@@ -30,8 +30,10 @@ public class UnfinishedWorkWeek {
             for (; elementWorkDay < workDay.length; elementWorkDay++) {
                 sumWorkDay += workDay[elementWorkDay];
             }
-            workWeek.add(sumWorkDay);
-            sumWorkDay = 0;
+            if (sumWorkDay !=  0){
+                workWeek.add(sumWorkDay);
+            }
+
         }
 
         System.out.println(workWeek);
